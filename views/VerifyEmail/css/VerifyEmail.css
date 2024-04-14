@@ -1,0 +1,158 @@
+.verify-email.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.verify-email .image1 {
+  position: absolute;
+  top: 586px;
+  left: 295px;
+  width: 12px;
+  height: 12px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.verify-email .highlight {
+  position: absolute;
+  top: 580px;
+  left: 319px;
+  width: 110px;
+  height: 24px;
+  font: 400 16px/1.5 "Montserrat", Helvetica, Arial, serif;
+  color: #475467;
+}
+.verify-email .box2 {
+  position: absolute;
+  top: 504px;
+  left: 180px;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 44px;
+  background-color: #3789ff;
+  border-radius: 8px 8px 8px 8px;
+  outline: 1px solid #e24949;
+  outline-offset: -1px;
+  filter: drop-shadow(0px 1px 2px rgba(16, 24, 40, 0.047));
+}
+.verify-email .highlight2 {
+  margin: 10px auto;
+  font: 600 16px/1.5 "Montserrat", Helvetica, Arial, serif;
+  color: white;
+}
+.verify-email .box1 {
+  position: absolute;
+  top: 436px;
+  left: 180px;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 44px;
+  background-color: white;
+  border-radius: 8px 8px 8px 8px;
+  outline: 1px solid #d0d5dd;
+  outline-offset: -1px;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.047);
+  overflow: hidden;
+}
+.verify-email .highlight1 {
+  position: absolute;
+  top: 406px;
+  left: 180px;
+  width: 46px;
+  height: 24px;
+  font: 400 16px/1.5 "Montserrat", Helvetica, Arial, serif;
+  color: #344054;
+}
+.verify-email .highlight3 {
+  position: absolute;
+  top: 350px;
+  left: 184px;
+  display: flex;
+  justify-content: center;
+  width: 352px;
+  height: 24px;
+  font: 400 16px/1.5 "Montserrat", Helvetica, Arial, serif;
+  color: #475467;
+  text-align: center;
+}
+.verify-email .subtitle {
+  position: absolute;
+  top: 314px;
+  left: 287.5px;
+  display: flex;
+  justify-content: center;
+  width: 145px;
+  height: 24px;
+  font: 700 22px/1.09 "Montserrat", Helvetica, Arial, serif;
+  color: #101828;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .verify-email .subtitle {
+    align-items: flex-start;
+    font-size: 20px;
+  }
+}
+@media (max-width: 479px) {
+  .verify-email .subtitle {
+    font-size: 18px;
+  }
+}
+.verify-email .box {
+  position: absolute;
+  top: 234px;
+  left: 332px;
+  display: flex;
+  flex-direction: column;
+  width: 56px;
+  height: 56px;
+  background-color: #f4ebff;
+  border-radius: 28px 28px 28px 28px;
+  outline: 10px solid #f9f5ff;
+  outline-offset: -5px;
+}
+.verify-email .image {
+  margin: 18px 17px 17px 18px;
+  width: 21px;
+  max-width: 85%;
+  height: 21px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+@media (max-width: 575px) {
+  .verify-email .image {
+    margin: 18px 16px 17px;
+  }
+}
+@media (max-width: 383px) {
+  .verify-email .image {
+    margin: 18px 8px 17px;
+  }
+}
+.verify-email .group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 0px auto;
+  width: 720px;
+  max-width: 85%;
+}
+.verify-email .rect1 {
+  position: relative;
+  min-height: 960px;
+  background-color: #3789ff;
+}
+.verify-email .image2 {
+  position: absolute;
+  top: 205px;
+  left: 50%;
+  width: 524px;
+  height: 550px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transform: translate(-50%, 0);
+}
+
+

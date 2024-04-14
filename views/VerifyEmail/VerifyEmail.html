@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/VerifyEmail.css" />
+
+
+
+
+</head>
+
+<body class="flex-column">
+    <form class="verify-email root" id="verify-email">
+        <img class="image1" src="./assets/blue_arrow_icon.png" alt="alt text" />
+        <a href=""><h5 class="highlight">Back to log in</h5></a>
+        <button type="submit" class="box2"><h5 class="highlight2">Get Code</h5></button>
+        <input type="email" class="box1" name="" id="email" style="border: none;">
+        <h5 class="highlight1">Email</h5>
+        <h5 class="highlight3">No worries, we’ll send you reset instructions.</h5>
+        <h3 class="subtitle">Verify Email</h3>
+        <div class="box"><img class="image" src="./assets/red_key_icon.png" alt="alt text" /></div>
+        <div class="group">
+            <div class="rect1"></div>
+            <img class="image2" src="./assets/user_growth_charts_interface.png" alt="alt text" />
+        </div>
+    </form>
+    <script >
+      document.getElementById("verify-email").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    const data = {
+        email: email
+    };
+
+    postData("https://jsonplaceholder.typicode.com/posts", data)
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+});
+
+async function postData(url = "", data = {}) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    return await response.json();
+}
+    </script>
+</body>
+
+</html>

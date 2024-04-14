@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/SignUp2.css" />
+ 
+
+
+
+</head>
+
+<body class="flex-column">
+    <form class="sign-up2 root" id="signup">
+        <a href=""><div class="text6">Sign in</div></a>
+        <div class="text">Don’t have an account?</div>
+        <div class="box2"><img class="image2" src="./assets/yellow_abstract_pattern.png" alt="alt text" /></div>
+        <a href=""><div class="text5">Sign in with Google</div></a>
+        <img class="image1" src="./assets/red_ink_blob.png" alt="alt text" /><img class="image" src="./assets/abstract_blue_gradient.png" alt="alt text" /><img class="image11" src="./assets/green_paint_splatter.png" alt="alt text" />
+        <button class="box1" >
+            <div class="text4">Register Now</div>
+        </button >
+        <div class="rect"></div>
+        <div class="text3_box">
+            <span class="text3"
+          ><span class="text3_span0">accept terms &amp; condition and</span><span class="text3_span1"> privacy policy</span></span>
+        </div>
+        <div class="text2">Must be at least 8 characters.</div>
+        <input type="password" id="confirmpassword" class="box" style="border: none;">
+        <div class="text1">Confirm Password*</div>
+        <div class="text21">Must be at least 8 characters.</div>
+        <input type="password" id="password" class="box3" style="border: none;">
+        <div class="text11">Password*</div>
+        <input type="email" id="email" class="box4" style="border: none;">
+        <div class="text12">Email*</div>
+        <input type="text" id="lastname" class="box5" style="border: none;">
+        <div class="text13">Last Name*</div>
+        <input type="text" id="firstname" class="box6" style="border: none;">
+        <div class="text14">First Name*</div>
+        <div class="text7">Welcome! Please enter your details.</div>
+        <h3 class="subtitle">Register</h3>
+        <div class="group">
+            <div class="rect1"></div>
+            <img class="image3" src="./assets/user_growth_charts_interface.png" alt="alt text" />
+        </div>
+    </form>
+    <script >
+        document.getElementById("signup").addEventListener("submit", (event) => {
+      event.preventDefault();
+  
+      const firstname = document.getElementById("firstname").value;
+      const lastname = document.getElementById("lastname").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmpassword = document.getElementById("confirmpassword").value;
+  
+      const data = {
+          firstname: firstname,
+          lastname:lastname,
+          email:email,
+          password:password,
+          confirmpassword:confirmpassword
+      };
+  
+      postData("https://jsonplaceholder.typicode.com/posts", data)
+          .then((response) => {
+              console.log(response);
+          })
+          .catch((error) => {
+              console.error("Error:", error);
+          });
+  });
+  
+  async function postData(url = "", data = {}) {
+      const response = await fetch(url, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+      });
+  
+      return await response.json();
+  }
+      </script>
+</body>
+
+</html>

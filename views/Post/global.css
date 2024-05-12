@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-roboto: Roboto;
+  --font-be-vietnam: "Be Vietnam";
+
+  /* font sizes */
+  --font-size-base: 16px;
+  --font-size-13xl: 32px;
+  --font-size-lgi: 19px;
+  --font-size-7xl: 26px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-whitesmoke-100: #f9f9f9;
+  --color-whitesmoke-200: #f0f0f0;
+  --color-gray-100: #262626;
+  --color-black: #000;
+  --iris-100: #5d5fef;
+
+  /* Gaps */
+  --gap-xl: 20px;
+
+  /* Paddings */
+  --padding-12xs: 1px;
+  --padding-xl: 20px;
+  --padding-base: 16px;
+  --padding-5xs: 8px;
+  --padding-15xl: 34px;
+  --padding-36xl: 55px;
+  --padding-11xs: 2px;
+  --padding-6xl: 25px;
+  --padding-32xl: 51px;
+
+  /* Border radiuses */
+  --br-10xl: 29px;
+  --br-lg: 18px;
+}

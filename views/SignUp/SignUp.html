@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./css/common.css" />
     <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="./css/SignUp2.css" />
- 
+
 
 
 
@@ -17,18 +17,24 @@
 
 <body class="flex-column">
     <form class="sign-up2 root" id="signup">
-        <a href="http://localhost:3000/login"><div class="text6">Sign in</div></a>
+        <a href="http://localhost:3000/login">
+            <div class="text6">Sign in</div>
+        </a>
         <div class="text">Don’t have an account?</div>
         <div class="box2"><img class="image2" src="./assets/yellow_abstract_pattern.png" alt="alt text" /></div>
-        <a href=""><div class="text5">Sign in with Google</div></a>
-        <img class="image1" src="./assets/red_ink_blob.png" alt="alt text" /><img class="image" src="./assets/abstract_blue_gradient.png" alt="alt text" /><img class="image11" src="./assets/green_paint_splatter.png" alt="alt text" />
-        <button class="box1" >
+        <a href="">
+            <div class="text5">Sign in with Google</div>
+        </a>
+        <img class="image1" src="./assets/red_ink_blob.png" alt="alt text" /><img class="image"
+            src="./assets/abstract_blue_gradient.png" alt="alt text" /><img class="image11"
+            src="./assets/green_paint_splatter.png" alt="alt text" />
+        <button class="box1">
             <div class="text4"><a href="http://localhost:3000/login">Register Now</a></div>
-        </button >
+        </button>
         <div class="rect"></div>
         <div class="text3_box">
-            <span class="text3"
-          ><span class="text3_span0">accept terms &amp; condition and</span><span class="text3_span1"> privacy policy</span></span>
+            <span class="text3"><span class="text3_span0">accept terms &amp; condition and</span><span
+                    class="text3_span1"> privacy policy</span></span>
         </div>
         <div class="text2">Must be at least 8 characters.</div>
         <input type="password" id="confirmpassword" class="box" style="border: none;">
@@ -49,45 +55,127 @@
             <img class="image3" src="./assets/user_growth_charts_interface.png" alt="alt text" />
         </div>
     </form>
-    <script >
+    <script>
+
+
+        document.getElementById("signup").addEventListener("submit", function (event) {
+            // Prevent form submission
+            event.preventDefault();
+
+            // Call validateForm function
+            if (validateForm()) {
+                // If validation passes, submit the form
+                this.submit();
+            }
+        });
+
+        function validateForm() {
+            // Reset any previous error messages
+            document.getElementById('fnError').textContent = '';
+            document.getElementById('lnError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passError').textContent = '';
+            document.getElementById('CpassError').textContent = '';
+
+            var firstName = document.getElementById('firstname').value;
+            var lastName = document.getElementById('lastname').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmpassword').value;
+
+            if (firstName.trim() === "") {
+                document.getElementById('fnError').textContent = 'First name cannot be empty';
+                return false;
+            }
+
+            if (lastName.trim() === "") {
+                document.getElementById('lnError').textContent = 'Last name cannot be empty';
+                return false;
+            }
+
+            if (email.trim() === "") {
+                document.getElementById('emailError').textContent = 'Email cannot be empty';
+                return false;
+            }
+
+            if (password.trim() === "") {
+                document.getElementById('passError').textContent = 'Password cannot be empty';
+                return false;
+            }
+
+            if (confirmPassword.trim() === "") {
+                document.getElementById('CpassError').textContent = 'Confirm Password cannot be empty';
+                return false;
+            }
+
+            var nameRegex = /^[A-Za-z\s]+$/;
+            if (!nameRegex.test(firstName)) {
+                document.getElementById('fnError').textContent = 'First name must contain only alphabets';
+                return false;
+            }
+
+            if (!nameRegex.test(lastName)) {
+                document.getElementById('lnError').textContent = 'Last name must contain only alphabets';
+                return false;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                return false;
+            }
+
+            if (password.length < 8) {
+                document.getElementById('passError').textContent = 'Password must be at least 8 characters';
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById('CpassError').textContent = 'Passwords do not match';
+                return false;
+            }
+
+            //else true
+            return true;
+        }
         document.getElementById("signup").addEventListener("submit", (event) => {
-      event.preventDefault();
-  
-      const firstname = document.getElementById("firstname").value;
-      const lastname = document.getElementById("lastname").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const confirmpassword = document.getElementById("confirmpassword").value;
-  
-      const data = {
-          firstname: firstname,
-          lastname:lastname,
-          email:email,
-          password:password,
-          confirmpassword:confirmpassword
-      };
-  
-      postData("https://jsonplaceholder.typicode.com/posts", data)
-          .then((response) => {
-              console.log(response);
-          })
-          .catch((error) => {
-              console.error("Error:", error);
-          });
-  });
-  
-  async function postData(url = "", data = {}) {
-      const response = await fetch(url, {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
-      });
-  
-      return await response.json();
-  }
-      </script>
+            event.preventDefault();
+
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmpassword = document.getElementById("confirmpassword").value;
+
+            const data = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                confirmPassword: confirmPassword
+            };
+
+            postData("https://jsonplaceholder.typicode.com/posts", data)
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        });
+
+        async function postData(url = "", data = {}) {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            return await response.json();
+        }
+    </script>
 </body>
 
 </html>
